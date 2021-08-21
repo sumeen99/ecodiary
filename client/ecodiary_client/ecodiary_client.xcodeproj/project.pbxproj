@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A82BA13726D0D195007736AF /* ecodiary_clientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82BA13626D0D195007736AF /* ecodiary_clientApp.swift */; };
-		A82BA13926D0D195007736AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82BA13826D0D195007736AF /* ContentView.swift */; };
-		A82BA13B26D0D196007736AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82BA13A26D0D196007736AF /* Assets.xcassets */; };
-		A82BA13E26D0D196007736AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82BA13D26D0D196007736AF /* Preview Assets.xcassets */; };
+		A82BA15226D0D616007736AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82BA15126D0D616007736AF /* AppDelegate.swift */; };
+		A82BA15426D0D616007736AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82BA15326D0D616007736AF /* SceneDelegate.swift */; };
+		A82BA15626D0D616007736AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82BA15526D0D616007736AF /* ViewController.swift */; };
+		A82BA15926D0D616007736AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82BA15726D0D616007736AF /* Main.storyboard */; };
+		A82BA15B26D0D617007736AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82BA15A26D0D617007736AF /* Assets.xcassets */; };
+		A82BA15E26D0D617007736AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82BA15C26D0D617007736AF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A82BA13326D0D195007736AF /* ecodiary_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ecodiary_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A82BA13626D0D195007736AF /* ecodiary_clientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ecodiary_clientApp.swift; sourceTree = "<group>"; };
-		A82BA13826D0D195007736AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A82BA13A26D0D196007736AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A82BA13D26D0D196007736AF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A82BA13F26D0D196007736AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A82BA14E26D0D616007736AF /* ecodiary_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ecodiary_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A82BA15126D0D616007736AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A82BA15326D0D616007736AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A82BA15526D0D616007736AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A82BA15826D0D616007736AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A82BA15A26D0D617007736AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A82BA15D26D0D617007736AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A82BA15F26D0D617007736AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A82BA13026D0D195007736AF /* Frameworks */ = {
+		A82BA14B26D0D616007736AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,52 +37,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A82BA12A26D0D195007736AF = {
+		A82BA14526D0D616007736AF = {
 			isa = PBXGroup;
 			children = (
-				A82BA13526D0D195007736AF /* ecodiary_client */,
-				A82BA13426D0D195007736AF /* Products */,
+				A82BA15026D0D616007736AF /* ecodiary_client */,
+				A82BA14F26D0D616007736AF /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A82BA13426D0D195007736AF /* Products */ = {
+		A82BA14F26D0D616007736AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A82BA13326D0D195007736AF /* ecodiary_client.app */,
+				A82BA14E26D0D616007736AF /* ecodiary_client.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A82BA13526D0D195007736AF /* ecodiary_client */ = {
+		A82BA15026D0D616007736AF /* ecodiary_client */ = {
 			isa = PBXGroup;
 			children = (
-				A82BA13626D0D195007736AF /* ecodiary_clientApp.swift */,
-				A82BA13826D0D195007736AF /* ContentView.swift */,
-				A82BA13A26D0D196007736AF /* Assets.xcassets */,
-				A82BA13F26D0D196007736AF /* Info.plist */,
-				A82BA13C26D0D196007736AF /* Preview Content */,
+				A82BA15126D0D616007736AF /* AppDelegate.swift */,
+				A82BA15326D0D616007736AF /* SceneDelegate.swift */,
+				A82BA15526D0D616007736AF /* ViewController.swift */,
+				A82BA15726D0D616007736AF /* Main.storyboard */,
+				A82BA15A26D0D617007736AF /* Assets.xcassets */,
+				A82BA15C26D0D617007736AF /* LaunchScreen.storyboard */,
+				A82BA15F26D0D617007736AF /* Info.plist */,
 			);
 			path = ecodiary_client;
-			sourceTree = "<group>";
-		};
-		A82BA13C26D0D196007736AF /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				A82BA13D26D0D196007736AF /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A82BA13226D0D195007736AF /* ecodiary_client */ = {
+		A82BA14D26D0D616007736AF /* ecodiary_client */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A82BA14226D0D196007736AF /* Build configuration list for PBXNativeTarget "ecodiary_client" */;
+			buildConfigurationList = A82BA16226D0D617007736AF /* Build configuration list for PBXNativeTarget "ecodiary_client" */;
 			buildPhases = (
-				A82BA12F26D0D195007736AF /* Sources */,
-				A82BA13026D0D195007736AF /* Frameworks */,
-				A82BA13126D0D195007736AF /* Resources */,
+				A82BA14A26D0D616007736AF /* Sources */,
+				A82BA14B26D0D616007736AF /* Frameworks */,
+				A82BA14C26D0D616007736AF /* Resources */,
 			);
 			buildRules = (
 			);
@@ -86,24 +84,24 @@
 			);
 			name = ecodiary_client;
 			productName = ecodiary_client;
-			productReference = A82BA13326D0D195007736AF /* ecodiary_client.app */;
+			productReference = A82BA14E26D0D616007736AF /* ecodiary_client.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A82BA12B26D0D195007736AF /* Project object */ = {
+		A82BA14626D0D616007736AF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
-					A82BA13226D0D195007736AF = {
+					A82BA14D26D0D616007736AF = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
 			};
-			buildConfigurationList = A82BA12E26D0D195007736AF /* Build configuration list for PBXProject "ecodiary_client" */;
+			buildConfigurationList = A82BA14926D0D616007736AF /* Build configuration list for PBXProject "ecodiary_client" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -111,42 +109,63 @@
 				en,
 				Base,
 			);
-			mainGroup = A82BA12A26D0D195007736AF;
-			productRefGroup = A82BA13426D0D195007736AF /* Products */;
+			mainGroup = A82BA14526D0D616007736AF;
+			productRefGroup = A82BA14F26D0D616007736AF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A82BA13226D0D195007736AF /* ecodiary_client */,
+				A82BA14D26D0D616007736AF /* ecodiary_client */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A82BA13126D0D195007736AF /* Resources */ = {
+		A82BA14C26D0D616007736AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A82BA13E26D0D196007736AF /* Preview Assets.xcassets in Resources */,
-				A82BA13B26D0D196007736AF /* Assets.xcassets in Resources */,
+				A82BA15E26D0D617007736AF /* LaunchScreen.storyboard in Resources */,
+				A82BA15B26D0D617007736AF /* Assets.xcassets in Resources */,
+				A82BA15926D0D616007736AF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A82BA12F26D0D195007736AF /* Sources */ = {
+		A82BA14A26D0D616007736AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A82BA13926D0D195007736AF /* ContentView.swift in Sources */,
-				A82BA13726D0D195007736AF /* ecodiary_clientApp.swift in Sources */,
+				A82BA15626D0D616007736AF /* ViewController.swift in Sources */,
+				A82BA15226D0D616007736AF /* AppDelegate.swift in Sources */,
+				A82BA15426D0D616007736AF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		A82BA15726D0D616007736AF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A82BA15826D0D616007736AF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A82BA15C26D0D617007736AF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A82BA15D26D0D617007736AF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		A82BA14026D0D196007736AF /* Debug */ = {
+		A82BA16026D0D617007736AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -207,7 +226,7 @@
 			};
 			name = Debug;
 		};
-		A82BA14126D0D196007736AF /* Release */ = {
+		A82BA16126D0D617007736AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -262,16 +281,13 @@
 			};
 			name = Release;
 		};
-		A82BA14326D0D196007736AF /* Debug */ = {
+		A82BA16326D0D617007736AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"ecodiary_client/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ecodiary_client/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -283,16 +299,13 @@
 			};
 			name = Debug;
 		};
-		A82BA14426D0D196007736AF /* Release */ = {
+		A82BA16426D0D617007736AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"ecodiary_client/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ecodiary_client/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,25 +320,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A82BA12E26D0D195007736AF /* Build configuration list for PBXProject "ecodiary_client" */ = {
+		A82BA14926D0D616007736AF /* Build configuration list for PBXProject "ecodiary_client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A82BA14026D0D196007736AF /* Debug */,
-				A82BA14126D0D196007736AF /* Release */,
+				A82BA16026D0D617007736AF /* Debug */,
+				A82BA16126D0D617007736AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A82BA14226D0D196007736AF /* Build configuration list for PBXNativeTarget "ecodiary_client" */ = {
+		A82BA16226D0D617007736AF /* Build configuration list for PBXNativeTarget "ecodiary_client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A82BA14326D0D196007736AF /* Debug */,
-				A82BA14426D0D196007736AF /* Release */,
+				A82BA16326D0D617007736AF /* Debug */,
+				A82BA16426D0D617007736AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A82BA12B26D0D195007736AF /* Project object */;
+	rootObject = A82BA14626D0D616007736AF /* Project object */;
 }
