@@ -1,4 +1,4 @@
-package ecodiary.server;
+package ecodiary.server.domain.Posts;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +26,6 @@ public class Posts {
     @Column(nullable = false)
     private String question;
 
-    @Column(nullable = false)
     private String info;
 
 }

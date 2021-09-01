@@ -1,5 +1,6 @@
-package ecodiary.server;
+package ecodiary.server.domain.Posts;
 
+import ecodiary.server.domain.Posts.Posts;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PostsRepository extends JpaRepository<Posts,Long> {
