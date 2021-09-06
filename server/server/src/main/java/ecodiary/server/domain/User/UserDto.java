@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@AllArgsConstructor
 public class UserDto {
     //private Long id
     private Long missionId;
@@ -19,7 +18,7 @@ public class UserDto {
         return User.builder().missionId(null).build();
     }
 
-    
+
 
 
 }
