@@ -14,15 +14,13 @@ import javax.persistence.*;
 @Table(name = "user")
 @Builder
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
 
-    @Column(name="user_id",nullable = false)
-    private Long userId;
-
-    @Column(name="mission_id",nullable = false)
-    private String missionId;
+    @Column(name="mission_id")
+    private Long missionId;
 
 }
