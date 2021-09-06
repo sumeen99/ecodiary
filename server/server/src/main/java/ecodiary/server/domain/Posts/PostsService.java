@@ -9,6 +9,19 @@ public class PostsService {
 
     private final PostsRepository postsRepository;
 
-    public 
+    public String findMission(Long id){
+        Posts posts=postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id=" + id));
+        return posts.getMission();
+    }
+
+    public String findQuestion(Long id){
+        Posts posts=postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id=" + id));
+        return posts.getQuestion();
+    }
+
+    public String findInfo(Long id){
+        Posts posts=postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id=" + id));
+        return posts.getInfo();
+    }
 
 }
