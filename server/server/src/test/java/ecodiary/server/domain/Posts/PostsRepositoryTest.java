@@ -45,7 +45,7 @@ public class PostsRepositoryTest {
         Posts post=postsRepository.save(Posts.builder().mission(mission).question(question).info(info).build());
 
         //then
-        Posts posts=postsRepository.findById(post.getId()).get();
+        Posts posts=postsRepository.findById(post.getId()).orElseThrow(() -> new IllegalArgumentException("그런 미션없습니다"));
         assertThat(post).isEqualTo(posts);
 
     }
