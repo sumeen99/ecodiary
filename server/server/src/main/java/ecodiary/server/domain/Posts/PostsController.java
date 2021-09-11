@@ -11,7 +11,7 @@ public class PostsController {
 
     private final PostsService postsService;
 
-    @GetMapping("/api/v1/posts/{id}/id")
+    @GetMapping("/api/v1/posts/{id}/mission")
     public String findMission(@PathVariable Long id){
         return postsService.findMission(id);
     }
