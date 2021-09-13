@@ -1,5 +1,6 @@
 package ecodiary.server.domain.User;
 
+import ecodiary.server.domain.Posts.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,10 +9,12 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserService userService;
+    private final PostsService postsService;
 
     @GetMapping("/api/v1/user/{id}/missionId")
-    public Long getMissionId(@PathVariable Long id){
-        return userService.selectMissionId(id);
+    public UserDto getMissionId(@PathVariable Long id){
+        Long missionId=userService.selectMissionId(id);
+        return UserDto.builder().missionId(missionId).mission(postsService.findMission(missionId)).build();
     }
 
     @PostMapping("/api/v1/user")
