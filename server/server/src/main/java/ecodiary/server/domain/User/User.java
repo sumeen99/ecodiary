@@ -20,7 +20,7 @@ public class User {
     @Column(nullable = false)
     private Long id;
 
-    @Column(name="mission_id")
+    @Column(name="mission_id",nullable = false)
     private Long missionId;
 
 }
