@@ -12,7 +12,7 @@ public class UserService {
 
     @Transactional
     public Long createUser(){
-        User user=userRepository.save(User.builder().missionId(null).build()); //Builder를 사용 or DTO를 사용(client에서 주는게 없어서 DTO를 사용해야 하는지 잘 모르겠음)
+        User user=userRepository.save(User.builder().missionId(1L).build()); //Builder를 사용 or DTO를 사용(client에서 주는게 없어서 DTO를 사용해야 하는지 잘 모르겠음)
         return user.getId();
     }
 
