@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.net.URL;
 
 @Getter
 @NoArgsConstructor
@@ -27,5 +28,7 @@ public class Posts {
     private String question;
 
     private String info;
+
+    private URL imgurl;
 
 }

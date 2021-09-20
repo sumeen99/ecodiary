@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.net.URL;
+
 @RequiredArgsConstructor
 @Service
 public class PostsService {
@@ -26,6 +28,12 @@ public class PostsService {
     public String findInfo(Long id){
         Posts posts=postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id=" + id));
         return posts.getInfo();
+    }
+
+    @Transactional(readOnly = true)
+    public URL findImgUrl(Long id){
+        Posts posts=postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id=" + id));
+        return posts.getImgurl();
     }
 
 

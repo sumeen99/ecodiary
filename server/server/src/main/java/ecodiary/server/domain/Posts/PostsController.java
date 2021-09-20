@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URL;
 import java.time.LocalDate;
 
 @RestController
@@ -27,6 +28,11 @@ public class PostsController {
     @GetMapping("/api/v1/posts/{id}/info")
     public String findInfo(@PathVariable Long id){
         return postsService.findInfo(id);
+    }
+
+    @GetMapping("/api/v1/posts/{id}/imgurl")
+    public URL findImgUrl(@PathVariable Long id){
+        return postsService.findImgUrl(id);
     }
 
     @GetMapping("/api/v1/{date}")
