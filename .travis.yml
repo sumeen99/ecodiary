@@ -13,8 +13,7 @@ cache:
     - '$HOME/.gradle'
 
 before_install:
-  - pwd
-  - ls -la
+  - cd ecodiary/server/server
   - chmod +x gradlew
 
 script: "./gradlew clean build"
