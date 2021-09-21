@@ -33,7 +33,7 @@ public class UserRepositoryTest {
     @Test
     public void findAll(){
         //given
-        Long missionId=2L;
+        Long missionId=1L;
         userRepository.save(User.builder().missionId(missionId).build());
 
         //when
