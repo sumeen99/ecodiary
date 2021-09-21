@@ -31,7 +31,7 @@ public class PostsController {
     }
 
     @GetMapping("/api/v1/posts/{id}/imgurl")
-    public URL findImgUrl(@PathVariable Long id){
+    public String findImgUrl(@PathVariable Long id){
         return postsService.findImgUrl(id);
     }
 

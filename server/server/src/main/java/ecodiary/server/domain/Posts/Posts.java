@@ -29,6 +29,6 @@ public class Posts {
 
     private String info;
 
-    private URL imgurl;
+    private String imgurl;
 
 }

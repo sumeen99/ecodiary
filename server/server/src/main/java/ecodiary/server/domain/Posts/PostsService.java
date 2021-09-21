@@ -31,7 +31,7 @@ public class PostsService {
     }
 
     @Transactional(readOnly = true)
-    public URL findImgUrl(Long id){
+    public String findImgUrl(Long id){
         Posts posts=postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id=" + id));
         return posts.getImgurl();
     }
