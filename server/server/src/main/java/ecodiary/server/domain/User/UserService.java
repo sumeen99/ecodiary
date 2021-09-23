@@ -4,6 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 @RequiredArgsConstructor
 @Service
 public class UserService {
@@ -20,9 +23,6 @@ public class UserService {
     public void updateMissionId(Long userId){//수정은 save or findbyId를 통해 entity에 update라는 함수를 넣으면 된다.. 뭐가 더 좋을까?
         User user= userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + userId));
         Long currentMissionId=user.getMissionId();
-        if (currentMissionId==null){
-            currentMissionId=0L;
-        }
         userRepository.save(User.builder().id(userId).missionId(++currentMissionId).build());
     }
 
@@ -30,6 +30,19 @@ public class UserService {
     public Long selectMissionId(Long userId){
         User user= userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + userId));
         return user.getMissionId();
+    }
+
+    @Transactional
+    public void updateMissionDate(Long userId, LocalDate missionDate){
+        User user=userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + userId));
+        user.updateDate(missionDate);
+        //userRepository.save(User.builder().id(userId).missionId(user.getMissionId()).missionDate(missionDate).build());
+    }
+
+    @Transactional(readOnly = true)
+    public int countMissionCheck(){
+        //Date date=Date.valueOf(LocalDate.now());
+        return userRepository.countByMissionDate(LocalDate.now());
     }
 
 

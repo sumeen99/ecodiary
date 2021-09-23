@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter
 @NoArgsConstructor
@@ -22,5 +23,12 @@ public class User {
 
     @Column(name="mission_id",nullable = false)
     private Long missionId;
+
+    @Column(name="mission_date")
+    private LocalDate missionDate;
+
+    public void updateDate(LocalDate missionDate){
+        this.missionDate=missionDate;
+    }
 
 }

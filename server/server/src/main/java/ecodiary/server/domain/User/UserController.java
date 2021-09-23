@@ -4,6 +4,8 @@ import ecodiary.server.domain.Posts.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+
 @RequiredArgsConstructor
 @RestController
 public class UserController {
@@ -25,6 +27,16 @@ public class UserController {
     @PutMapping("/api/v1/user/{id}/missionId")
     public void updateMissionId(@PathVariable Long id){
          userService.updateMissionId(id);
+    }
+
+    @PutMapping("/api/v1/user/{id}/missionCheck")
+    public void updateMissionDate(@PathVariable Long id){
+        userService.updateMissionDate(id,LocalDate.now());
+    }
+
+    @GetMapping("/api/v1/user/totalOfToday")
+    public int getTotalOfToday(){
+        return userService.countMissionCheck();
     }
 
 
