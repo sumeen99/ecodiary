@@ -1,0 +1,29 @@
+{{>layout/header}}
+
+<h1>미션 등록</h1>
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for ="admin">관리자</label>
+                <input type="text" class="form-control" id="admin" placeholder="관리자 번호를 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for ="mission">미션</label>
+                <input type="text" class="form-control" id="mission" placeholder="미션을 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for ="question">질문</label>
+                <input type="text" class="form-control" id="question" placeholder="질문을 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for ="info">정보</label>
+                <textarea class="form-control" id="info" placeholder="정보를 입력하세요"></textarea>
+            </div>
+        </form>
+        <a href="/" role="button" class="btn btn-secondary">취소</a>
+        <button type="button" class="btn btn-primary" id="btn-save">등록</button>
+    </div>
+</div>
+{{>layout/footer}}
