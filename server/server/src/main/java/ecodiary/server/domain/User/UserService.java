@@ -4,8 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -43,6 +44,31 @@ public class UserService {
     public int countMissionCheck(){
         //Date date=Date.valueOf(LocalDate.now());
         return userRepository.countByMissionDate(LocalDate.now());
+    }
+
+    @Transactional(readOnly = true)
+    public List<UserResponseDto> selectMissionCheck(UserCheckRequestDto userCheckRequestDto){
+//        List<User> users=userRepository.findByAdminId(admin);
+//        users.stream().filter(t-> t.getMissionDate().equals(LocalDate.now())).map(t->new UserResponseDto(t.getId(),true)).collect(Collectors.toList());
+        Long admin=userCheckRequestDto.getAdminId();
+        List<UserResponseDto> userResponseDtoList=new ArrayList<>();
+        userRepository.findByAdminId(admin).forEach(i->{
+            if(i.getMissionDate().equals(LocalDate.now())){
+                userResponseDtoList.add(new UserResponseDto(i.getId(),true));
+            }
+            else{
+                userResponseDtoList.add(new UserResponseDto(i.getId(),false));
+            }
+        });
+        return userResponseDtoList;
+
+    }
+
+    @Transactional
+    public List<User> registerAdminToUser(Long adminId,Long userId){
+        User user=userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + userId));
+        user.updateAdminId(adminId);
+        return userRepository.findByAdminId(adminId);
     }
 
 

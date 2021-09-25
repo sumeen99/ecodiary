@@ -18,17 +18,18 @@ var main = {
             admin: $('#adim').val(),
             mission: $('#mission').val(),
             question: $('#question').val(),
-            info: $('#info').val()
+            info: $('#info').val(),
+            imgurl: $('#imgurl').val()
         };
 
         $.ajax({
             type: 'POST',
-            url: '/api/v1/posts',
+            url: '/api/v1/eduPosts',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
-            alert('글이 등록되었습니다.');
+            alert('미션이 등록되었습니다.');
             window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));

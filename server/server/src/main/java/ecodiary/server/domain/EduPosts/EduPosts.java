@@ -20,7 +20,7 @@ public class EduPosts {
     @Column(nullable = false)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false,name = "admin_id")
     private Long adminId;
 
     @Column(nullable = false)

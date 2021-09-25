@@ -27,8 +27,14 @@ public class User {
     @Column(name="mission_date")
     private LocalDate missionDate;
 
+    @Column(name = "admin_id")
+    private Long adminId;
+
     public void updateDate(LocalDate missionDate){
         this.missionDate=missionDate;
+    }
+    public void updateAdminId(Long adminId){
+        this.adminId=adminId;
     }
 
 }

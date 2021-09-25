@@ -2,6 +2,7 @@ package ecodiary.server.domain.User;
 
 import ecodiary.server.domain.Posts.PostsService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -39,7 +40,10 @@ public class UserController {
         return userService.countMissionCheck();
     }
 
-
+    @GetMapping("/api/v1/eduPosts/users")
+    public void checkTodayMission(@RequestBody UserRequestDto requestDto, Model model){
+        model.addAttribute("posts",userService.selectMissionCheck())
+    }
 
 
 }
