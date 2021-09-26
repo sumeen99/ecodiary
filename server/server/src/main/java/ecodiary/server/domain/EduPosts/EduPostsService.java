@@ -1,5 +1,6 @@
 package ecodiary.server.domain.EduPosts;
 
+import ecodiary.server.domain.Admin.AdminRepository;
 import ecodiary.server.domain.User.User;
 import ecodiary.server.domain.User.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,13 +15,19 @@ import java.util.List;
 public class EduPostsService {
     private final EduPostsRepository eduPostsRepository;
     private final UserRepository userRepository;
+    private final AdminRepository adminRepository;
 
     @Transactional
-    public void saveMission(EduPostsDto eduPostsDto){
+    public Long saveMission(EduPostsDto eduPostsDto){
         //List<User> users=userRepository.findByAdminId(adminId);
-        List<Long> usersNum=userRepository.findNum(eduPostsDto.getAdminId());
-        Long max= Collections.max(usersNum);
-        eduPostsRepository.save(eduPostsDto.toEntity(++max));
+        Long adminId=eduPostsDto.getAdminId();
+        adminRepository.findById(adminId).orElseThrow(() -> new IllegalArgumentException("해당 관리자가 없습니다. id=" + adminId));
+        List<Long> usersNum=userRepository.findNum(adminId);
+        Long max=0L;
+        if (usersNum.size()!=0){
+            max= Collections.max(usersNum);
+        }
+        return eduPostsRepository.save(eduPostsDto.toEntity(++max)).getId();
 
     }
 

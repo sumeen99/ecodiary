@@ -5,7 +5,7 @@ var main = {
             _this.save();
         });
 
-        $('#btn-update').on('click', function () {
+        $('#btn-userSave').on('click', function () {
             _this.update();
         });
 
@@ -15,7 +15,7 @@ var main = {
     },
     save : function () {
         var data = {
-            admin: $('#adim').val(),
+            adminId: $('#adminId').val(),
             mission: $('#mission').val(),
             question: $('#question').val(),
             info: $('#info').val(),
@@ -37,20 +37,20 @@ var main = {
     },
     update : function () {
         var data = {
-            title: $('#title').val(),
-            content: $('#content').val()
+            adminId: $('#adminId').val(),
+            userId: $('#userId').val()
         };
 
-        var id = $('#id').val();
+        //var id = $('#id').val();
 
         $.ajax({
-            type: 'PUT',
-            url: '/api/v1/posts/'+id,
+            type: 'GET',
+            url: '/api/v1/eduPosts/registerAdminToUser',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
-            alert('글이 수정되었습니다.');
+            alert('추가되었습니다');
             window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));

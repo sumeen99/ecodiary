@@ -40,9 +40,17 @@ public class UserController {
         return userService.countMissionCheck();
     }
 
-    @GetMapping("/api/v1/eduPosts/users")
-    public void checkTodayMission(@RequestBody UserRequestDto requestDto, Model model){
-        model.addAttribute("posts",userService.selectMissionCheck())
+    @GetMapping("/api/v1/eduPosts/checkUsers")
+    public void checkTodayMission(@RequestBody UserCheckRequestDto userCheckRequestDto, Model model){
+        model.addAttribute("posts",userService.selectMissionCheck(userCheckRequestDto));
+    }
+
+    @ResponseBody
+    @GetMapping("/api/v1/eduPosts/registerAdminToUser")
+    public String registerAdminToUser(@RequestBody UserRegisterRequestDto userRegisterRequestDto, Model model){
+        System.out.println("성공");
+        model.addAttribute("users",userService.registerAdminToUser(userRegisterRequestDto));
+        return "성공";
     }
 
 

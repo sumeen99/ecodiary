@@ -1,5 +1,7 @@
 package ecodiary.server.domain.User;
 
+import ecodiary.server.domain.Admin.Admin;
+import ecodiary.server.domain.Admin.AdminRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +15,7 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final AdminRepository adminRepository;
 
     @Transactional
     public Long createUser(){
@@ -65,7 +68,10 @@ public class UserService {
     }
 
     @Transactional
-    public List<User> registerAdminToUser(Long adminId,Long userId){
+    public List<User> registerAdminToUser(UserRegisterRequestDto userRegisterRequestDto){
+        Long adminId=userRegisterRequestDto.getAdminId();
+        Long userId= userRegisterRequestDto.getUserId();
+        adminRepository.findById(adminId).orElseThrow(() -> new IllegalArgumentException("해당 관리자가 없습니다. id=" + userId));
         User user=userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + userId));
         user.updateAdminId(adminId);
         return userRepository.findByAdminId(adminId);
