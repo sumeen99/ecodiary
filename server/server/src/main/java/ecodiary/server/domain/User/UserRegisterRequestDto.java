@@ -1,7 +1,9 @@
 package ecodiary.server.domain.User;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @Getter
 public class UserRegisterRequestDto {
     private Long adminId;

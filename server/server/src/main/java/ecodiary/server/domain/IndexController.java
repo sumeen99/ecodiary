@@ -1,12 +1,14 @@
 package ecodiary.server.domain;
 
+import ecodiary.server.domain.User.User;
 import ecodiary.server.domain.User.UserCheckRequestDto;
 import ecodiary.server.domain.User.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
@@ -25,10 +27,13 @@ public class IndexController {
     }
 
     //주미
-    @GetMapping("/users/save")
-    public String usersSave(){
+    @RequestMapping("/users/save")
+    public String usersSave(Model model, @RequestParam(value="userList",required = false) List<User> userList){
+        System.out.println("성공2");
+        model.addAttribute("users",userList);
         return "users-save";
     }
+
 
     @GetMapping("/users/check")
     public String usersCheck(@RequestBody UserCheckRequestDto userCheckRequestDto, Model model){

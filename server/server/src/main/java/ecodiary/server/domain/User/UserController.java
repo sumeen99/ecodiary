@@ -4,8 +4,10 @@ import ecodiary.server.domain.Posts.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -13,6 +15,7 @@ public class UserController {
 
     private final UserService userService;
     private final PostsService postsService;
+
 
     @GetMapping("/api/v1/user/{id}/missionId")
     public UserDto getMissionId(@PathVariable Long id){
@@ -45,12 +48,12 @@ public class UserController {
         model.addAttribute("posts",userService.selectMissionCheck(userCheckRequestDto));
     }
 
-    @ResponseBody
-    @GetMapping("/api/v1/eduPosts/registerAdminToUser")
-    public String registerAdminToUser(@RequestBody UserRegisterRequestDto userRegisterRequestDto, Model model){
-        System.out.println("성공");
-        model.addAttribute("users",userService.registerAdminToUser(userRegisterRequestDto));
-        return "성공";
+    @PostMapping("/api/v1/eduPosts/registerAdminToUser")
+    public List<User> registerAdminToUser(@RequestBody UserRegisterRequestDto userRegisterRequestDto){
+
+        List<User> users=userService.registerAdminToUser(userRegisterRequestDto);
+        System.out.println(users);
+        return users;
     }
 
 
