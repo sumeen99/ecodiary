@@ -19,7 +19,7 @@ public class PostsService {
     @Transactional(readOnly = true)
     public String findMission(Long id){
         User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + id));
-        Long missionId=user.getId();
+        Long missionId=user.getMissionId();
         Long adminId=user.getAdminId();
         if(checkAdmin(adminId)){
             Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+id));
@@ -36,7 +36,7 @@ public class PostsService {
     @Transactional(readOnly = true)
     public String findQuestion(Long id){
         User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + id));
-        Long missionId=user.getId();
+        Long missionId=user.getMissionId();
         Long adminId=user.getAdminId();
         if(checkAdmin(adminId)){
             Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+id));
@@ -52,7 +52,7 @@ public class PostsService {
     @Transactional(readOnly = true)
     public String findInfo(Long id){
         User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + id));
-        Long missionId=user.getId();
+        Long missionId=user.getMissionId();
         Long adminId=user.getAdminId();
         if(checkAdmin(adminId)){
             Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+id));
@@ -68,7 +68,7 @@ public class PostsService {
     @Transactional(readOnly = true)
     public String findImgUrl(Long id){
         User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + id));
-        Long missionId=user.getId();
+        Long missionId=user.getMissionId();
         Long adminId=user.getAdminId();
         if(checkAdmin(adminId)){
             Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+id));
