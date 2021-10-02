@@ -11,8 +11,6 @@ public interface UserRepository extends JpaRepository<User,Long> {
     int countByMissionDate(LocalDate missionDate);
     List<User> findByAdminId(Long adminId);
 
-    @Query(value = "SELECT num FROM edu_daily WHERE admin_id=:adminId",nativeQuery = true)
-    List<Long> findNum(@Param("adminId")Long adminId);
 
 
 }

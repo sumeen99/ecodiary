@@ -22,7 +22,7 @@ public class EduPostsService {
         //List<User> users=userRepository.findByAdminId(adminId);
         Long adminId=eduPostsDto.getAdminId();
         adminRepository.findById(adminId).orElseThrow(() -> new IllegalArgumentException("해당 관리자가 없습니다. id=" + adminId));
-        List<Long> usersNum=userRepository.findNum(adminId);
+        List<Long> usersNum=eduPostsRepository.findNum(adminId);
         Long max=0L;
         if (usersNum.size()!=0){
             max= Collections.max(usersNum);

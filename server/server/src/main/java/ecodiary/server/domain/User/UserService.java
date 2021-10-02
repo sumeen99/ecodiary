@@ -66,7 +66,6 @@ public class UserService {
             }
         });
         return userResponseDtoList;
-
     }
 
     @Transactional
@@ -75,7 +74,7 @@ public class UserService {
         Long userId= userRegisterRequestDto.getUserId();
         adminRepository.findById(adminId).orElseThrow(() -> new IllegalArgumentException("해당 관리자가 없습니다. id=" + userId));
         User user=userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + userId));
-        user.updateAdminId(adminId);
+        user.updateAdminId(adminId,1L);
         return userRepository.findByAdminId(adminId);
     }
 

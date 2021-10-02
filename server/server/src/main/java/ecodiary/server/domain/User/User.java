@@ -33,8 +33,9 @@ public class User {
     public void updateDate(LocalDate missionDate){
         this.missionDate=missionDate;
     }
-    public void updateAdminId(Long adminId){
+    public void updateAdminId(Long adminId,Long missionId){
         this.adminId=adminId;
+        this.missionId=missionId;
     }
 
 }
