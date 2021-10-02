@@ -20,6 +20,7 @@ public class IndexController {
     private final UserService userService;
     private final EduPostsService eduPostsService;
     private final String url="ec2-3-37-141-187.ap-northeast-2.compute.amazonaws.com";
+    //private final String url="localhost";
 
 
     @GetMapping("/")
@@ -31,7 +32,7 @@ public class IndexController {
     @GetMapping("/admin/{adminId}/posts/save")
     public String postsSave(Model model,@PathVariable Long adminId){
         model.addAttribute("adminId",adminId);
-        model.addAttribute("port",url);
+        model.addAttribute("url",url);
         return "posts-save";
     }
 
@@ -39,7 +40,7 @@ public class IndexController {
     @RequestMapping("/admin/{adminId}/users/save")
     public String usersSave(Model model,@PathVariable Long adminId){
         model.addAttribute("adminId",adminId);
-        model.addAttribute("port",url);
+        model.addAttribute("url",url);
         return "users-save";
     }
 
@@ -47,7 +48,7 @@ public class IndexController {
     @GetMapping("/admin/{adminId}/home")
     public String home(Model model, @PathVariable Long adminId){
         model.addAttribute("users",userService.selectMissionCheck(adminId));
-       model.addAttribute("port",url);
+       model.addAttribute("url",url);
         model.addAttribute("adminId",adminId);
         return "home";
     }
@@ -55,7 +56,7 @@ public class IndexController {
     @GetMapping("/admin/{adminId}/posts/list")
     public String postsList(@PathVariable Long adminId, Model model){
         model.addAttribute("posts",eduPostsService.selectEduPosts(adminId));
-        model.addAttribute("port",url);
+        model.addAttribute("url",url);
         model.addAttribute("adminId",adminId);
         return "posts-list";
     }
@@ -65,7 +66,7 @@ public class IndexController {
         EduPosts eduPosts =eduPostsService.selectEduPost(id);
         model.addAttribute("adminId",adminId);
         model.addAttribute("post",eduPosts);
-        model.addAttribute("port",url);
+        model.addAttribute("url",url);
         return "posts-update";
     }
 ///////////////////////////////
