@@ -81,7 +81,17 @@ var main = {
     },
     gohome:function (){
         var adminId = $('#adminId').val();
-        window.location.href = '/admin/'+adminId+'/home';
+
+        $.ajax({
+            type: 'GET',
+            url: '/api/v1/checkAdmin/'+adminId,
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+        }).done(function() {
+            window.location.href = '/admin/'+adminId+'/home';
+        }).fail(function (error) {
+            alert("해당 ID는 없는 ID입니다.");
+        });
     },
     postUpdate:function (){
         var id=$('#Id').val();

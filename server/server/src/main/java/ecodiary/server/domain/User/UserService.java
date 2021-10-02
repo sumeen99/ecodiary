@@ -1,6 +1,5 @@
 package ecodiary.server.domain.User;
 
-import ecodiary.server.domain.Admin.Admin;
 import ecodiary.server.domain.Admin.AdminRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
