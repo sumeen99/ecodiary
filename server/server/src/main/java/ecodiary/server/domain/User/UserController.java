@@ -20,7 +20,7 @@ public class UserController {
     @GetMapping("/api/v1/user/{id}/missionId")
     public UserDto getMissionId(@PathVariable Long id){
         Long missionId=userService.selectMissionId(id);
-        return UserDto.builder().missionId(missionId).mission(postsService.findMission(missionId)).build();
+        return UserDto.builder().missionId(missionId).mission(postsService.findMission(id)).build();
     }
 
     @PostMapping("/api/v1/user")

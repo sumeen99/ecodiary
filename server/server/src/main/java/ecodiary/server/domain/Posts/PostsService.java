@@ -36,13 +36,15 @@ public class PostsService {
     @Transactional(readOnly = true)
     public String findQuestion(Long id){
         User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + id));
-        Long userId=user.getId();
-        if(checkAdmin(user.getAdminId())){
-            Posts posts=postsRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+userId));
+        Long missionId=user.getId();
+        Long adminId=user.getAdminId();
+        if(checkAdmin(adminId)){
+            Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+id));
             return posts.getQuestion();
         }
         else{
-            EduPosts eduPosts=eduPostsRepository.findByAdminIdAndNum(userId,user.getMissionId());
+            EduPosts eduPosts=eduPostsRepository.findByAdminIdAndNum(adminId,missionId);
+//            checkNull(eduPosts,userId);
             return eduPosts.getQuestion();
         }
     }
@@ -50,13 +52,15 @@ public class PostsService {
     @Transactional(readOnly = true)
     public String findInfo(Long id){
         User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + id));
-        Long userId=user.getId();
-        if(checkAdmin(user.getAdminId())){
-            Posts posts=postsRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+userId));
+        Long missionId=user.getId();
+        Long adminId=user.getAdminId();
+        if(checkAdmin(adminId)){
+            Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+id));
             return posts.getInfo();
         }
         else{
-            EduPosts eduPosts=eduPostsRepository.findByAdminIdAndNum(userId,user.getMissionId());
+            EduPosts eduPosts=eduPostsRepository.findByAdminIdAndNum(adminId,missionId);
+//            checkNull(eduPosts,userId);
             return eduPosts.getInfo();
         }
     }
@@ -64,13 +68,15 @@ public class PostsService {
     @Transactional(readOnly = true)
     public String findImgUrl(Long id){
         User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + id));
-        Long userId=user.getId();
-        if(checkAdmin(user.getAdminId())){
-            Posts posts=postsRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+userId));
+        Long missionId=user.getId();
+        Long adminId=user.getAdminId();
+        if(checkAdmin(adminId)){
+            Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+id));
             return posts.getImgurl();
         }
         else{
-            EduPosts eduPosts=eduPostsRepository.findByAdminIdAndNum(userId,user.getMissionId());
+            EduPosts eduPosts=eduPostsRepository.findByAdminIdAndNum(adminId,missionId);
+//            checkNull(eduPosts,userId);
             return eduPosts.getImgurl();
         }
     }
