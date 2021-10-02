@@ -35,7 +35,13 @@ public class EduPosts {
     private String info;
     private String imgurl;
 
+public void update(EduPostsResponseDto eduPostsResponseDto){
+    this.mission=eduPostsResponseDto.getMission();
+    this.question=eduPostsResponseDto.getQuestion();
+    this.info=eduPostsResponseDto.getInfo();
+    this.imgurl= eduPostsResponseDto.getImgurl();
 
+}
 
 
 }

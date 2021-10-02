@@ -1,0 +1,28 @@
+{{>layout/header}}
+
+<h1>이용자 목록</h1>
+<div class="col-md-12">
+    <br>
+    <!-- 목록 출력 영역 -->
+    <table class="table table-horizontal table-bordered">
+
+        <thead class="thead-strong">
+        <tr>
+            <th>이용자 번호</th>
+        </tr>
+        </thead>
+
+        <tbody id="tbody">
+        {{#users}}
+            <tr>
+                <td>{{id}}</td>
+
+            </tr>
+        {{/users}}
+        </tbody>
+
+
+    </table>
+</div>
+
+{{>layout/footer}}

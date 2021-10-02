@@ -1,25 +1,49 @@
-{{>layout/header}}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Eco Diary 관리</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        html{height: 100%;}
+        body{
+            background-color: #BBDEFB;
+            font-family: 'Hi Melody', cursive;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .form-row{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin:20px 50px 30px 50px;
+        }
+        .title{
+            font-size:  100%;
+        }
 
-<h1>Eco Diary 관리</h1>
-<div class="col-md-12">
+    </style>
+</head>
+<body>
+<div class="form-row text-center">
+    <div class="col-12">
+        <div class="title">
+            <h2>관리자 모드</h2>
 
-    <div class="row">
-        <div class="col-md-6">
-            <a href="/users/save" role="button" class="btn btn-primary">이용자 등록</a>
+            <h2>Eco Diary</h2>
         </div>
+        <form>
+            <div class="form-group">
+                <label for ="adminId">관리자</label>
+                <input type="text" class="form-control" id="adminId" placeholder="관리자 번호를 입력하세요">
+            </div>
+        </form>
+        <button type="button" class="btn btn-primary" id="btn-admin">등록</button>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <a href="/posts/save" role="button" class="btn btn-primary">미션 등록</a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <a href="/users/check" role="button" class="btn btn-primary">이용자 미션 완료 확인</a>
-        </div>
-    </div>
-
-    <br>
 </div>
 
 {{>layout/footer}}

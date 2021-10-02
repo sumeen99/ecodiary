@@ -31,4 +31,27 @@ public class EduPostsService {
 
     }
 
+    @Transactional(readOnly = true)
+    public List<EduPosts> selectEduPosts(Long adminId){
+        return eduPostsRepository.findByAdminId(adminId);
+    }
+
+    @Transactional
+    public Long updateEduPosts(EduPostsResponseDto eduPostsResponseDto,Long id){
+        EduPosts eduPosts=eduPostsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다." ));
+        eduPosts.update(eduPostsResponseDto);
+        return eduPosts.getId();
+    }
+
+    @Transactional(readOnly = true)
+    public EduPosts selectEduPost(Long id){
+        return eduPostsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다." ));
+    }
+
+    @Transactional
+    public void deleteEduPosts(Long id){
+        eduPostsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다." ));
+        eduPostsRepository.deleteById(id);
+    }
+
 }

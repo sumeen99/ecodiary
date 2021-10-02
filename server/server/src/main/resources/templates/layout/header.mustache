@@ -3,7 +3,33 @@
 <head>
     <title>Eco Diary 관리</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+
+        body{
+
+            font-family: 'Hi Melody', cursive;
+
+
+        }
+
+    </style>
 </head>
 <body>
+<div class="menu">
+    <div class="col-md-12">
+        <h1>관리자 모드</h1>
+        <h1>Eco Diary</h1>
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-6">
+        </div>
+        <a href="http://{{url}}:8080/admin/{{adminId}}/users/save" role="button" class="btn btn-primary">이용자 등록</a>
+        <a href="http://{{url}}:8080/admin/{{adminId}}/posts/save" role="button" class="btn btn-primary">미션 등록</a>
+        <a href="http://{{url}}:8080/admin/{{adminId}}/posts/list" role="button" class="btn btn-primary">미션 목록</a>
+        <br>
+    </div>
+</div>

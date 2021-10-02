@@ -1,0 +1,26 @@
+{{>layout/header}}
+
+<h1>미션목록</h1>
+<div class="col-md-12">
+    <!-- 목록 출력 영역 -->
+    <table class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+        <tr>
+            <th>번호</th>
+            <th>미션</th>
+            <th>질문</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#posts}}
+            <tr>
+                <td>{{num}}</td>
+                <td><a href="update/{{id}}">{{mission}}</a></td>
+                <td>{{question}}</td>
+            </tr>
+        {{/posts}}
+        </tbody>
+    </table>
+</div>
+
+{{>layout/footer}}

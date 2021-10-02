@@ -42,11 +42,11 @@ public class UserController {
     public int getTotalOfToday(){
         return userService.countMissionCheck();
     }
-
-    @GetMapping("/api/v1/eduPosts/checkUsers")
-    public void checkTodayMission(@RequestBody UserCheckRequestDto userCheckRequestDto, Model model){
-        model.addAttribute("posts",userService.selectMissionCheck(userCheckRequestDto));
-    }
+//
+//    @GetMapping("/api/v1/eduPosts/checkUsers")
+//    public void checkTodayMission(@RequestBody UserCheckRequestDto userCheckRequestDto, Model model){
+//        model.addAttribute("posts",userService.selectMissionCheck(userCheckRequestDto));
+//    }
 
     @PostMapping("/api/v1/eduPosts/registerAdminToUser")
     public List<User> registerAdminToUser(@RequestBody UserRegisterRequestDto userRegisterRequestDto){

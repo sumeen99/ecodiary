@@ -50,13 +50,15 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public List<UserResponseDto> selectMissionCheck(UserCheckRequestDto userCheckRequestDto){
+    public List<UserResponseDto> selectMissionCheck(Long admin){
 //        List<User> users=userRepository.findByAdminId(admin);
 //        users.stream().filter(t-> t.getMissionDate().equals(LocalDate.now())).map(t->new UserResponseDto(t.getId(),true)).collect(Collectors.toList());
-        Long admin=userCheckRequestDto.getAdminId();
         List<UserResponseDto> userResponseDtoList=new ArrayList<>();
         userRepository.findByAdminId(admin).forEach(i->{
-            if(i.getMissionDate().equals(LocalDate.now())){
+            if (i.getMissionDate() == null){
+                userResponseDtoList.add(new UserResponseDto(i.getId(),false));
+            }
+            else if(i.getMissionDate().equals(LocalDate.now())){
                 userResponseDtoList.add(new UserResponseDto(i.getId(),true));
             }
             else{
@@ -75,6 +77,13 @@ public class UserService {
         User user=userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + userId));
         user.updateAdminId(adminId);
         return userRepository.findByAdminId(adminId);
+    }
+
+    @Transactional(readOnly = true)
+    public List<User> selectUserList(Long adminId){
+        List<User> users=userRepository.findByAdminId(adminId);
+        System.out.println(users);
+        return users;
     }
 
 

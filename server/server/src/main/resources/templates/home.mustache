@@ -1,0 +1,32 @@
+{{>layout/header}}
+
+<div class="form-group">
+    <label for ="adminId">관리자</label>
+    <input type="text" class="form-control" id="adminId" value="{{adminId}}" readonly>
+</div>
+<h1>이용자 미션 완료 확인</h1>
+
+<div class="col-md-12">
+
+
+    <!-- 목록 출력 영역 -->
+    <table class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+        <tr>
+            <th>이용자 번호</th>
+            <th>미션 완료 유무</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#users}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{check}}</td>
+            </tr>
+        {{/users}}
+        </tbody>
+    </table>
+
+</div>
+
+{{>layout/footer}}
