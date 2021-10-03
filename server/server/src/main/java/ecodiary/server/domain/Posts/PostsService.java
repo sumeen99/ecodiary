@@ -21,12 +21,16 @@ public class PostsService {
         User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + id));
         Long missionId=user.getMissionId();
         Long adminId=user.getAdminId();
+        System.out.println(missionId);
+        System.out.println(adminId);
         if(checkAdmin(adminId)){
             Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+id));
+            System.out.println(posts);
             return posts.getMission();
         }
         else{
             EduPosts eduPosts=eduPostsRepository.findByAdminIdAndNum(adminId,missionId);
+            System.out.println(eduPosts);
 //            checkNull(eduPosts,userId);
             return eduPosts.getMission();
         }
