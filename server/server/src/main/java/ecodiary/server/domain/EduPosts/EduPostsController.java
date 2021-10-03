@@ -19,6 +19,8 @@ public class EduPostsController {
     @ResponseBody
     @PutMapping("/api/v1/eduPosts/update/{id}")
     public Long updateEduPosts(@RequestBody EduPostsResponseDto eduPostsResponseDto,@PathVariable Long id){
+        System.out.println(id);
+        System.out.println(eduPostsResponseDto);
         return eduPostsService.updateEduPosts(eduPostsResponseDto,id);
     }
 

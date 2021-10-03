@@ -38,4 +38,8 @@ public class User {
         this.missionId=missionId;
     }
 
+    public void updateMissionId(Long missionId){
+        this.missionId=missionId;
+    }
+
 }

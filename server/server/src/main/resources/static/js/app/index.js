@@ -97,6 +97,7 @@ var main = {
         var id=$('#Id').val();
         var adminId=$('#adminId').val();
         var data = {
+            adminId:adminId,
             mission: $('#mission').val(),
             question: $('#question').val(),
             info: $('#info').val(),
