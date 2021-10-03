@@ -19,8 +19,8 @@ import java.util.List;
 public class IndexController {
     private final UserService userService;
     private final EduPostsService eduPostsService;
-    //private final String url="ec2-3-37-141-187.ap-northeast-2.compute.amazonaws.com";
-    private final String url="localhost";
+    private final String url="ec2-3-37-141-187.ap-northeast-2.compute.amazonaws.com";
+    //private final String url="localhost";
 
 
     @GetMapping("/")
