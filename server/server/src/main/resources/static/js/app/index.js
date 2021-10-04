@@ -94,10 +94,9 @@ var main = {
         });
     },
     postUpdate:function (){
-        var id=$('#Id').val();
+        var id=$('#id').val();
         var adminId=$('#adminId').val();
         var data = {
-            adminId:adminId,
             mission: $('#mission').val(),
             question: $('#question').val(),
             info: $('#info').val(),
@@ -129,7 +128,7 @@ var main = {
             alert('미션이 삭제되었습니다.');
             window.location.href = '/admin/'+adminId+'/posts/list';
         }).fail(function (error) {
-            alert(JSON.stringify(error));
+            alert('원활한 미션을 위해 마지막 미션만 삭제가능하도록 했습니다. 마지막 미션이 아니라면 수정을 권합니다.');
         });
     }
 

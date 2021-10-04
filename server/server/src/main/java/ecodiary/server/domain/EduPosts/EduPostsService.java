@@ -1,7 +1,6 @@
 package ecodiary.server.domain.EduPosts;
 
 import ecodiary.server.domain.Admin.AdminRepository;
-import ecodiary.server.domain.User.User;
 import ecodiary.server.domain.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EduPostsService {
     private final EduPostsRepository eduPostsRepository;
-    private final UserRepository userRepository;
     private final AdminRepository adminRepository;
 
     @Transactional
@@ -50,8 +48,14 @@ public class EduPostsService {
 
     @Transactional
     public void deleteEduPosts(Long id){
-        eduPostsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다." ));
-        eduPostsRepository.deleteById(id);
+        EduPosts eduPosts=eduPostsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다." ));
+        int num=eduPostsRepository.countByAdminId(eduPosts.getAdminId());
+        if(num==eduPosts.getNum()){
+            eduPostsRepository.deleteById(id);
+        }else{
+            throw new IllegalArgumentException("마지막 게시글만 삭제 가능합니다.");
+        }
+
     }
 
 }

@@ -2,7 +2,6 @@ package ecodiary.server.domain.EduPosts;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @NoArgsConstructor
 @Getter

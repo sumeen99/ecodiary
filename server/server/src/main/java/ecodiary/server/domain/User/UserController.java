@@ -2,9 +2,7 @@ package ecodiary.server.domain.User;
 
 import ecodiary.server.domain.Posts.PostsService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
 import java.util.List;
