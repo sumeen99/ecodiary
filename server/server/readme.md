@@ -37,7 +37,7 @@
 
 ### 전체구조
 
-<img src="C:\Users\leesumeen\AppData\Roaming\Typora\typora-user-images\image-20211029023834016.png" alt="image-20211029023834016" style="zoom:150%;" />
+![image-20211029023834016](https://user-images.githubusercontent.com/70104259/140189001-2c83d347-800d-49da-90aa-75f2c4410f14.png)
 
 <img src="C:\Users\leesumeen\AppData\Roaming\Typora\typora-user-images\image-20211029023954819.png" alt="image-20211029023954819" style="zoom:150%;" />
 
