@@ -1,5 +1,6 @@
 package ecodiary.server.domain.Admin;
 
+import ecodiary.server.global.OutputConst;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +13,7 @@ public class AdminService {
 
     @Transactional(readOnly = true)
     public Long checkAdmin(Long adminId){
-        Admin admin=adminRepository.findById(adminId).orElseThrow(() -> new IllegalArgumentException("해당 관리자가 없습니다. id=" + adminId));
+        Admin admin=adminRepository.findById(adminId).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_ADMIN + adminId));
         return admin.getId();
     }
 }

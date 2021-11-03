@@ -4,6 +4,7 @@ import ecodiary.server.domain.EduPosts.EduPosts;
 import ecodiary.server.domain.EduPosts.EduPostsRepository;
 import ecodiary.server.domain.User.User;
 import ecodiary.server.domain.User.UserRepository;
+import ecodiary.server.global.OutputConst;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,13 +19,13 @@ public class PostsService {
 
     @Transactional(readOnly = true)
     public String findMission(Long id){
-        User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + id));
+        User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_USER + id));
         Long missionId=user.getMissionId();
         Long adminId=user.getAdminId();
         System.out.println(missionId);
         System.out.println(adminId);
         if(checkAdmin(adminId)){
-            Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+id));
+            Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_MISSION+id));
             System.out.println(posts);
             return posts.getMission();
         }
@@ -39,11 +40,11 @@ public class PostsService {
 
     @Transactional(readOnly = true)
     public String findQuestion(Long id){
-        User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + id));
+        User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_USER + id));
         Long missionId=user.getMissionId();
         Long adminId=user.getAdminId();
         if(checkAdmin(adminId)){
-            Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+id));
+            Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_MISSION+id));
             return posts.getQuestion();
         }
         else{
@@ -55,11 +56,11 @@ public class PostsService {
 
     @Transactional(readOnly = true)
     public String findInfo(Long id){
-        User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + id));
+        User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_USER + id));
         Long missionId=user.getMissionId();
         Long adminId=user.getAdminId();
         if(checkAdmin(adminId)){
-            Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+id));
+            Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_MISSION+id));
             return posts.getInfo();
         }
         else{
@@ -71,11 +72,11 @@ public class PostsService {
 
     @Transactional(readOnly = true)
     public String findImgUrl(Long id){
-        User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + id));
+        User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_USER + id));
         Long missionId=user.getMissionId();
         Long adminId=user.getAdminId();
         if(checkAdmin(adminId)){
-            Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException("해당 미션이 없습니다. id="+id));
+            Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_MISSION+id));
             return posts.getImgurl();
         }
         else{
@@ -88,11 +89,6 @@ public class PostsService {
     public boolean checkAdmin(Long adminId){
         return adminId == null;
     }
-//    public void checkNull(EduPosts eduPosts,Long userId){//이거 null여도 그냥 오류 안걸리게 하는게 지금 나을듯 교육시 해당 일수 끝날경우를 생각안함
-//        if (eduPosts==null){
-//        throw new IllegalArgumentException("해당 미션이 없습니다. id="+userId);
-//        }
-//    }
 
 
 

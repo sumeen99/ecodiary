@@ -2,6 +2,7 @@ package ecodiary.server.domain.EduPosts;
 
 import ecodiary.server.domain.Admin.AdminRepository;
 import ecodiary.server.domain.User.UserRepository;
+import ecodiary.server.global.OutputConst;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,7 +20,7 @@ public class EduPostsService {
     public Long saveMission(EduPostsDto eduPostsDto){
         //List<User> users=userRepository.findByAdminId(adminId);
         Long adminId=eduPostsDto.getAdminId();
-        adminRepository.findById(adminId).orElseThrow(() -> new IllegalArgumentException("해당 관리자가 없습니다. id=" + adminId));
+        adminRepository.findById(adminId).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_ADMIN + adminId));
         List<Long> usersNum=eduPostsRepository.findNum(adminId);
         Long max=0L;
         if (usersNum.size()!=0){
@@ -36,24 +37,24 @@ public class EduPostsService {
 
     @Transactional
     public Long updateEduPosts(EduPostsResponseDto eduPostsResponseDto,Long id){
-        EduPosts eduPosts=eduPostsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다." ));
+        EduPosts eduPosts=eduPostsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_POST ));
         eduPosts.update(eduPostsResponseDto);
         return eduPosts.getId();
     }
 
     @Transactional(readOnly = true)
     public EduPosts selectEduPost(Long id){
-        return eduPostsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다." ));
+        return eduPostsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_POST ));
     }
 
     @Transactional
     public void deleteEduPosts(Long id){
-        EduPosts eduPosts=eduPostsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다." ));
+        EduPosts eduPosts=eduPostsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_POST));
         int num=eduPostsRepository.countByAdminId(eduPosts.getAdminId());
         if(num==eduPosts.getNum()){
             eduPostsRepository.deleteById(id);
         }else{
-            throw new IllegalArgumentException("마지막 게시글만 삭제 가능합니다.");
+            throw new IllegalArgumentException(OutputConst.ONLY_FINAL_DELETABLE);
         }
 
     }

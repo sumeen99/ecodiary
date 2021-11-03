@@ -29,7 +29,7 @@ public class PostsController {
         return postsService.findInfo(id);
     }
 
-    @GetMapping("/api/v1/posts/{id}/imgurl")
+    @GetMapping("/api/v1/posts/{id}/img-url")
     public String findImgUrl(@PathVariable Long id){
         return postsService.findImgUrl(id);
     }

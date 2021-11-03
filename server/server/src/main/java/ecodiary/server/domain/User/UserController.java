@@ -15,7 +15,7 @@ public class UserController {
     private final PostsService postsService;
 
 
-    @GetMapping("/api/v1/user/{id}/missionId")
+    @GetMapping("/api/v1/user/{id}/mission-id")
     public UserDto getMissionId(@PathVariable Long id){
         Long missionId=userService.selectMissionId(id);
         return UserDto.builder().missionId(missionId).mission(postsService.findMission(id)).build();
@@ -26,27 +26,22 @@ public class UserController {
         return userService.createUser();
     }
 
-    @PutMapping("/api/v1/user/{id}/missionId")
+    @PutMapping("/api/v1/user/{id}/mission-id")
     public void updateMissionId(@PathVariable Long id){
          userService.updateMissionId(id);
     }
 
-    @PutMapping("/api/v1/user/{id}/missionCheck")
+    @PutMapping("/api/v1/user/{id}/mission-check")
     public void updateMissionDate(@PathVariable Long id){
         userService.updateMissionDate(id,LocalDate.now());
     }
 
-    @GetMapping("/api/v1/user/totalOfToday")
+    @GetMapping("/api/v1/user/total-of-today")
     public int getTotalOfToday(){
         return userService.countMissionCheck();
     }
-//
-//    @GetMapping("/api/v1/eduPosts/checkUsers")
-//    public void checkTodayMission(@RequestBody UserCheckRequestDto userCheckRequestDto, Model model){
-//        model.addAttribute("posts",userService.selectMissionCheck(userCheckRequestDto));
-//    }
 
-    @PostMapping("/api/v1/eduPosts/registerAdminToUser")
+    @PostMapping("/api/v1/edu-posts/register-admin-to-user")
     public List<User> registerAdminToUser(@RequestBody UserRegisterRequestDto userRegisterRequestDto){
 
         List<User> users=userService.registerAdminToUser(userRegisterRequestDto);

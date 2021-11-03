@@ -32,13 +32,41 @@
 
 ------
 
-### 구조
+### 전체구조
 
 <img src="C:\Users\leesumeen\AppData\Roaming\Typora\typora-user-images\image-20211029023834016.png" alt="image-20211029023834016" style="zoom:150%;" />
 
 <img src="C:\Users\leesumeen\AppData\Roaming\Typora\typora-user-images\image-20211029023954819.png" alt="image-20211029023954819" style="zoom:150%;" />
 
 (test부분구조는..... 우선 밑에서 얘기할게요....)
+
+#### DB구조
+
+![image-20211103043602436](C:\Users\leesumeen\AppData\Roaming\Typora\typora-user-images\image-20211103043602436.png)
+
+* daily
+  * id BIGINT / Primary Key / Auto_Increment / Not Null: daily 테이블 아이디
+  * mission VARCHAR(100) / Not Null  : 미션
+  * question VARCHAR(100) / Not Null : 질문
+  * info VARCHAR(200)  : 정보
+  * imgurl VARCHAR(100) : 스탬프 이미지 URL
+* edu_daily
+  * id BIGINT / Primary Key / Auto_Increment / Not Null : edu_daily 테이블 아이디
+  * admin_id BIGINT / Not Null : 관리자 아이디 (daily 테이블과 다른 점)
+  * num BIGINT / Not Null : 미션 순서 (daily 테이블과 다른 점)
+  * mission VARCHAR(100) / Not Null : 미션
+  * question VARCHAR(100) / Not Null : 질문
+  * info VARCHAR(200) : 정보
+  * imgurl VARCHAR(100) : 스탬프 이미지 URL
+* user
+  * id BIGINT / Primary Key / Auto_Increment / Not Null : user 테이블 아이디
+  * mission_id BIGINT / Not Null : 미션 순서
+  * mission_date DATE : 미션 받은 날짜
+  * admin_id BIGINT : 관리자 아이디(null 일 경우 일반사용자, 아닐경우 교육용 사용자)
+* manager
+  * id BIGINT / Primary Key / Not Null: 관리자 아이디
+
+
 
 ------
 
@@ -48,7 +76,13 @@
 
    그 전 프로젝트부터 고민있었던 부분. 처음에 시작했을 때는 대부분의 자료에서 계층형 구조를 사용하는 것을 잘 이해하지 못했다. 도메인형으로 하는게 오히려 더 깔끔해보였다. 하지만 이 프로젝트를 진행하면서 처음엔 도메인형으로 시작했지만, 점점 도메인간의 서로 참조(?)가 많아지면서(연관관계는 없었다) 이게 Posts Service인지 User Service인지 딱 구분하기가 애매해졌다. 나중에 가서는 계층형이 오히려 더 잘맞을 수 있게다 라고 생각했다. 결국에는 계층형으로 바꾸진 못했지만, 이번에 구조에 대해서 확실히 생각해 볼 수 있었다. (어떤 구조가 정답인지에 대해 매우 고민할 때 발견한 것 : https://www.inflearn.com/questions/16046)
 
-2. 보안이란, db(설계,연결,어떤db를 사용할지), apiurl, test, mustache, 수치화해서 보여줄수있는것.....?,카프카,문자열정리,queryDSL,aws,nginx,Codedeploy(aws)
+2. DB(MySql vs MongoDB)
+
+   첫 번째 프로그램을 할 때도 굉장히 고민했던 부분. 첫번째 프로그램에서는 MongoDB를 사용했었다. 그때 몽고디비를 사용했던 이유는 RDBS와 NoSql의 차이를 많이 반영해서 했다기보다는 Mysql은 사용해본적이 없지만 몽고디비는 사용해본적이 없어 경험상 사용했었다. 확실히 규격이 없어서 그런지 좀 더 간편했고 기본적으로 Json형식이라 넘겨줄 때 간편하게 넘겨줬던것같다. 하지만 관계가 중요한 데이터나 확실한 규격이 있는 데이터에선 rdbs를 쓰는게 더 낫다고 느꼈다. 
+
+   이번엔 MySql을 썼는데 위에서 데이터 구조를 보면 알겠지만 관계를 해놓지 않았다. 구조가 처음에는 daily만 있어서 관계가 가능했지만 후반부에 프로그램의 방향성을 바꾸느라 daily지만 성향이 다른 daily 테이블인 edu_daily를 만들게 되었다. daily와 연결되어 있는 user의 admin_id가  edu_daily와도 관계가 있게되어서 우선 내 수준에서는 조금 비효율적이지만 user의 admin_id를 select해 따로 해당 테이블에서 검색하는 방법을 썼다. 이로 인해 관계는 없지만, 데이터 구조가 명확하고 id와 같이 중복되면 안되는 데이터들을 사용하기 때문에 MySql이 더 낫다고 느껴 사용하게 되었다.  보통 중복불가가 한 데이터를 많이 쓰기에 앞으로 많이 쓸 것 같다.
+
+3. 보안이란, db(설계,연결,어떤db를 사용할지), apiurl, test, mustache, 수치화해서 보여줄수있는것.....?,카프카,문자열정리,queryDSL,aws,nginx,Codedeploy(aws)
 
 
 
