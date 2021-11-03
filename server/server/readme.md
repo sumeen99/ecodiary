@@ -39,13 +39,14 @@
 
 ![image-20211029023834016](https://user-images.githubusercontent.com/70104259/140189001-2c83d347-800d-49da-90aa-75f2c4410f14.png)
 
-<img src="C:\Users\leesumeen\AppData\Roaming\Typora\typora-user-images\image-20211029023954819.png" alt="image-20211029023954819" style="zoom:150%;" />
+![image-20211029023954819](https://user-images.githubusercontent.com/70104259/140189201-b05472a4-a505-425c-b500-60b4c9f8f70b.png)
 
 (test부분구조는..... 우선 밑에서 얘기할게요....)
 
 #### DB구조
 
-![image-20211103043602436](C:\Users\leesumeen\AppData\Roaming\Typora\typora-user-images\image-20211103043602436.png)
+![image-20211103043602436](https://user-images.githubusercontent.com/70104259/140189250-664bd45f-b980-4301-9a92-75a7756af5b8.png)
+
 
 * daily
   * id BIGINT / Primary Key / Auto_Increment / Not Null: daily 테이블 아이디
@@ -105,7 +106,8 @@
 
    Travis를 통해 CI를 진행하였고 
 
-   ![image-20211104050328213](C:\Users\leesumeen\AppData\Roaming\Typora\typora-user-images\image-20211104050328213.png)
+  ![image-20211104050328213](https://user-images.githubusercontent.com/70104259/140189280-ee9489bc-d9b3-476b-955f-b805812d15f7.png)
+)
 
    그 다음에 AWS S3 와 AWS CodeDepoly를 연결하고 나아가 NginX까지 진행했어야하는데 그러지 못했다. 
 
