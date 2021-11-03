@@ -24,7 +24,7 @@ public class UserService {
     }
 
     @Transactional
-    public void updateMissionId(Long userId){//수정은 save or findbyId를 통해 entity에 update라는 함수를 넣으면 된다.. 뭐가 더 좋을까?
+    public void updateMissionId(Long userId){
         User user= userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_USER + userId));
         Long currentMissionId=user.getMissionId();
         user.updateMissionId(++currentMissionId);
