@@ -26,7 +26,7 @@ class DiaryEditViewController: UIViewController, UITextViewDelegate{
     var buttons: [UIButton] = []
     
     var api:API = API()
-    var imgURL : URL!
+    var imgURL : URL?
     
     lazy var stackView: UIStackView = {
         let view = UIStackView()
@@ -68,7 +68,7 @@ class DiaryEditViewController: UIViewController, UITextViewDelegate{
         
         getQuestionAPI()
         getImgURLAPI()
-        saveMissionInfo()
+        getMissionInfo()
     }
 
     
@@ -112,64 +112,31 @@ class DiaryEditViewController: UIViewController, UITextViewDelegate{
     }
     
     func getQuestionAPI(){
-        let components = URLComponents(string: "http://ec2-3-37-141-187.ap-northeast-2.compute.amazonaws.com:8080/api/v1/posts/"+String(missionModel!.missionId)+"/question")
-        
-        guard let url = components?.url else{
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        session.dataTask(with: request){data,response,error in
-            print("Qusetion :",(response as! HTTPURLResponse).statusCode)
-            if let hasData = data {
+        api.getQuestion(userId: userId!) { question in
+            if question != nil {
                 DispatchQueue.main.async {
-                    self.questionLabel.text = String(data:hasData, encoding: .utf8)!
+                    self.questionLabel.text = question
                 }
             }
-        }.resume()
-        session.finishTasksAndInvalidate()
+        }
     }
     
     func getImgURLAPI(){
-        let components = URLComponents(string: "http://ec2-3-37-141-187.ap-northeast-2.compute.amazonaws.com:8080/api/v1/posts/"+String(missionModel!.missionId)+"/imgurl")
-        guard let url = components?.url else {
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        session.dataTask(with: request){data, response, error in
-            print("imgURL :", (response as! HTTPURLResponse).statusCode)
-            if let hasData = data{
+        api.getImgURLAPI(userId: userId!) { url in
+            if url != nil {
                 DispatchQueue.main.async {
-                    self.imgURL = URL(string: String(data: hasData, encoding: .utf8)!)
+                    self.imgURL = url
                 }
             }
-        }.resume()
-        session.finishTasksAndInvalidate()
+        }
     }
     
-    func saveMissionInfo() {
-        let components = URLComponents(string: "http://ec2-3-37-141-187.ap-northeast-2.compute.amazonaws.com:8080/api/v1/posts/"+String(missionModel!.missionId)+"/info")
-        
-        guard let url = components?.url else {
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        self.session.dataTask(with: request){ data, response, error in
-            print("Info :",(response as! HTTPURLResponse).statusCode)
-            if let hasData = data {
-                self.missionInfo = String(data: hasData, encoding: .utf8)!
+    func getMissionInfo() {
+        api.getMissionInfo(userId: userId!) { info in
+            if info != nil {
+                self.missionInfo = info!
             }
-        }.resume()
-        self.session.finishTasksAndInvalidate()
-        
+        }
     }
     
     @IBAction func saveDiary(_ sender: Any) {
@@ -190,8 +157,7 @@ class DiaryEditViewController: UIViewController, UITextViewDelegate{
         } catch {
             
         }
-        
-        api.finishMission(userId: userId!){ statusCode in
+        api.finishMissionAPI(userId: userId!){ statusCode in
             if statusCode == 200 {
                 DispatchQueue.main.async {
                     self.appdelegate.saveContext()
@@ -201,8 +167,6 @@ class DiaryEditViewController: UIViewController, UITextViewDelegate{
         }
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
    
 }
 

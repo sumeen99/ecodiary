@@ -119,23 +119,17 @@
 		FC07D97026DB90F10090816A /* EcoDiary */ = {
 			isa = PBXGroup;
 			children = (
-				FC07D97126DB90F10090816A /* AppDelegate.swift */,
 				FC07D97326DB90F10090816A /* SceneDelegate.swift */,
-				FC07D97526DB90F10090816A /* ViewController.swift */,
-				FC07D9A426DB92930090816A /* DateCell.swift */,
-				FC07D97726DB90F10090816A /* Main.storyboard */,
+				FC07D97126DB90F10090816A /* AppDelegate.swift */,
 				FC07D97D26DB90F10090816A /* Assets.xcassets */,
-				FC07D97F26DB90F10090816A /* LaunchScreen.storyboard */,
+				FC293C3D26EF5A8D007D55C0 /* API.swift */,
+				FC7FFA542733EA6B0058CB55 /* VCs */,
+				FC7FFA552733EA9D0058CB55 /* Cells */,
+				FC7FFA572733EBEC0058CB55 /* Models */,
+				FC7FFA59273401260058CB55 /* XIBS */,
+				FC7FFA5A2734017D0058CB55 /* Storyboards */,
 				FC07D98226DB90F10090816A /* Info.plist */,
 				FC07D97A26DB90F10090816A /* EcoDiary.xcdatamodeld */,
-				FC3795FA26E09157003A8F08 /* DiaryEditViewController.swift */,
-				FC3795FB26E09157003A8F08 /* DiaryEditViewController.xib */,
-				FC293C3D26EF5A8D007D55C0 /* API.swift */,
-				FC293C3F26EF8010007D55C0 /* DiaryViewController.swift */,
-				FC293C4026EF8010007D55C0 /* DiaryViewController.xib */,
-				FC2F69C026F096BD0022F397 /* MissionModel.swift */,
-				FC3B1F9927008C55007A98DF /* UserInfoViewController.swift */,
-				FC3B1F9A27008C55007A98DF /* UserInfoViewController.xib */,
 			);
 			path = EcoDiary;
 			sourceTree = "<group>";
@@ -156,6 +150,52 @@
 				FC07D99826DB90F10090816A /* Info.plist */,
 			);
 			path = EcoDiaryUITests;
+			sourceTree = "<group>";
+		};
+		FC7FFA542733EA6B0058CB55 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				FC07D97526DB90F10090816A /* ViewController.swift */,
+				FC3795FA26E09157003A8F08 /* DiaryEditViewController.swift */,
+				FC293C3F26EF8010007D55C0 /* DiaryViewController.swift */,
+				FC3B1F9927008C55007A98DF /* UserInfoViewController.swift */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		FC7FFA552733EA9D0058CB55 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FC07D9A426DB92930090816A /* DateCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FC7FFA572733EBEC0058CB55 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC2F69C026F096BD0022F397 /* MissionModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FC7FFA59273401260058CB55 /* XIBS */ = {
+			isa = PBXGroup;
+			children = (
+				FC3795FB26E09157003A8F08 /* DiaryEditViewController.xib */,
+				FC293C4026EF8010007D55C0 /* DiaryViewController.xib */,
+				FC3B1F9A27008C55007A98DF /* UserInfoViewController.xib */,
+			);
+			path = XIBS;
+			sourceTree = "<group>";
+		};
+		FC7FFA5A2734017D0058CB55 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FC07D97F26DB90F10090816A /* LaunchScreen.storyboard */,
+				FC07D97726DB90F10090816A /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
