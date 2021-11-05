@@ -37,7 +37,7 @@
 
 ### 전체구조
 
-![image-20211029023834016](https://user-images.githubusercontent.com/70104259/140189001-2c83d347-800d-49da-90aa-75f2c4410f14.png)
+![image](https://user-images.githubusercontent.com/70104259/140547002-27022266-0a63-481e-9342-02a42c145e31.png)
 
 ![image-20211029023954819](https://user-images.githubusercontent.com/70104259/140189201-b05472a4-a505-425c-b500-60b4c9f8f70b.png)
 
