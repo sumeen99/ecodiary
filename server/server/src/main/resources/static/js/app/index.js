@@ -35,7 +35,7 @@ var main = {
 
         $.ajax({
             type: 'POST',
-            url: '/api/v1/eduPosts/save',
+            url: '/api/v1/edu-posts/save',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
@@ -56,7 +56,7 @@ var main = {
 
         $.ajax({
             type: 'POST',
-            url: '/api/v1/eduPosts/registerAdminToUser',
+            url: '/api/v1/user/register-admin-to-user',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
@@ -84,7 +84,7 @@ var main = {
 
         $.ajax({
             type: 'GET',
-            url: '/api/v1/checkAdmin/'+adminId,
+            url: '/api/v1/admin/check/'+adminId,
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
         }).done(function() {
@@ -104,7 +104,7 @@ var main = {
         };
         $.ajax({
             type: 'PUT',
-            url: '/api/v1/eduPosts/update/'+id,
+            url: '/api/v1/edu-posts/update/'+id,
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
@@ -121,7 +121,7 @@ var main = {
         var adminId=$('#adminId').val();
         $.ajax({
             type: 'DELETE',
-            url: '/api/v1/eduPosts/delete/'+id,
+            url: '/api/v1/edu-posts/delete/'+id,
             dataType: 'json',
             contentType:'application/json; charset=utf-8'
         }).done(function() {
@@ -135,10 +135,3 @@ var main = {
 };
 
 main.init();
-
-function getParameter(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}

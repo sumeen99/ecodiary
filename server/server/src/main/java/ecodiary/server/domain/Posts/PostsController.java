@@ -14,27 +14,27 @@ public class PostsController {
 
     private final PostsService postsService;
 
-    @GetMapping("/api/v1/posts/{id}/mission")
+    @GetMapping("/api/v1/posts/get/mission/{id}")
     public String findMission(@PathVariable Long id){
         return postsService.findMission(id);
     }
 
-    @GetMapping("/api/v1/posts/{id}/question")
+    @GetMapping("/api/v1/posts/get/question/{id}")
     public String findQuestion(@PathVariable Long id){
         return postsService.findQuestion(id);
     }
 
-    @GetMapping("/api/v1/posts/{id}/info")
+    @GetMapping("/api/v1/posts/get/info/{id}")
     public String findInfo(@PathVariable Long id){
         return postsService.findInfo(id);
     }
 
-    @GetMapping("/api/v1/posts/{id}/img-url")
+    @GetMapping("/api/v1/posts/get/img-url/{id}")
     public String findImgUrl(@PathVariable Long id){
         return postsService.findImgUrl(id);
     }
 
-    @GetMapping("/api/v1/{date}")
+    @GetMapping("/api/v1/posts/get/date/{date}")
     public Boolean findDate(@PathVariable @DateTimeFormat(pattern="yyyyMMdd") LocalDate date){
         return date.equals(LocalDate.now()); }
 }

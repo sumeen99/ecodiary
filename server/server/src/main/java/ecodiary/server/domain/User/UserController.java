@@ -41,12 +41,9 @@ public class UserController {
         return userService.countMissionCheck();
     }
 
-    @PostMapping("/api/v1/edu-posts/register-admin-to-user")
+    @PostMapping("/api/v1/user/register-admin-to-user")
     public List<User> registerAdminToUser(@RequestBody UserRegisterRequestDto userRegisterRequestDto){
-
-        List<User> users=userService.registerAdminToUser(userRegisterRequestDto);
-        System.out.println(users);
-        return users;
+        return userService.registerAdminToUser(userRegisterRequestDto);
     }
 
 

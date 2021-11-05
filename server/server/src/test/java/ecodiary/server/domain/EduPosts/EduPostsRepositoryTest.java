@@ -1,7 +1,5 @@
 package ecodiary.server.domain.EduPosts;
 
-import ecodiary.server.domain.User.User;
-import ecodiary.server.domain.User.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +14,7 @@ public class EduPostsRepositoryTest {
     EduPostsRepository eduPostsRepository;
 
     @Test
-    public void save(){
+    public void findMaxNum(){
         //given
         Long adminId=1L;
 

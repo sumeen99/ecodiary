@@ -25,7 +25,6 @@ public class IndexController {
 
     @GetMapping("/")
     public String index() {
-        // model.addAttribute("posts", postsService.findAllDesc());
         return "index";
     }
 
@@ -36,7 +35,7 @@ public class IndexController {
         return "posts-save";
     }
 
-    //주미
+
     @RequestMapping("/admin/{adminId}/users/save")
     public String usersSave(Model model,@PathVariable Long adminId){
         model.addAttribute("adminId",adminId);
