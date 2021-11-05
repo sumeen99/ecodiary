@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     @IBOutlet weak var yearAndMonthLabel: UILabel?
     @IBOutlet weak var missionLabel: UILabel!
     @IBOutlet weak var calendarCollectionView: UICollectionView!
@@ -224,7 +224,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private func initView(){
+    func initView(){
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(checkMission))
         missionCheck.image = UIImage(systemName: "exclamationmark.bubble.fill")
         missionCheck.tintColor = .systemGreen
@@ -235,14 +235,15 @@ class ViewController: UIViewController {
         dateComponents.month = calendar.component(.month, from: now)
         dateComponents.day = 1
         
+        missionLabel.text = ""
         userInfoBtn.tintColor = .systemGreen
-        
+    
         getTotalOfToday()
         
-        self.calculation()
+        calculation()
     }
     
-    private func calculation(){
+    func calculation(){
         let firstDayMonth = calendar.date(from: dateComponents)
         let firstWeekday = calendar.component(.weekday, from: firstDayMonth!)
         daysCountInMonth = calendar.range(of: .day, in: .month, for: firstDayMonth!)!.count
@@ -296,7 +297,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UICollectionViewDataSource{
+extension MainViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.days.count
 
@@ -315,7 +316,7 @@ extension ViewController: UICollectionViewDataSource{
     
 }
 
-extension ViewController: UICollectionViewDelegate{
+extension MainViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! DateCell
         dateFormatter.dateFormat = "yyyyMM"
@@ -351,10 +352,9 @@ extension ViewController: UICollectionViewDelegate{
 }
 
 
-extension ViewController: EditDelegate{
+extension MainViewController: EditDelegate{
     func didFinishSaveDiary() {
         getTotalOfToday()
-        calculation()
         calendarCollectionView.reloadData()
     }
     
@@ -371,7 +371,7 @@ extension ViewController: EditDelegate{
     }
 }
 
-extension ViewController:UserInfoViewControllerDelegate{
+extension MainViewController:UserInfoViewControllerDelegate{
     func setUserNumber() -> String {
         return userId!
     }

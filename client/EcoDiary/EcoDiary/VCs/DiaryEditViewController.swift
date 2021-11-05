@@ -65,7 +65,6 @@ class DiaryEditViewController: UIViewController, UITextViewDelegate{
         dateOfToday = delegate?.getDateOfToday()
         missionModel = delegate?.getMissionModel()
         missionLabel.text = missionModel?.mission
-        
         getQuestionAPI()
         getImgURLAPI()
         getMissionInfo()

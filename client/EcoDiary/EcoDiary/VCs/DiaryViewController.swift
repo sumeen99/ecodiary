@@ -11,9 +11,7 @@ import CoreData
 
 
 class DiaryViewController: UIViewController {
-    
     var date:String!
-
     
     @IBOutlet weak var gradeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!

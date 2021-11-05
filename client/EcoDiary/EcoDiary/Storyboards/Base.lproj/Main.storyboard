@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EcoDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="EcoDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,9 +35,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="109" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSo-Qi-xUV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSo-Qi-xUV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="109" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="zFa-2Y-3As"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -50,7 +52,10 @@
                                                 <constraint firstAttribute="bottom" secondItem="tT9-Yd-Jsz" secondAttribute="bottom" constant="3" id="2Id-dD-vOp"/>
                                                 <constraint firstItem="tT9-Yd-Jsz" firstAttribute="top" secondItem="sj4-8S-Nfb" secondAttribute="top" constant="15" id="BRH-Gd-A7M"/>
                                                 <constraint firstAttribute="trailing" secondItem="tT9-Yd-Jsz" secondAttribute="trailing" id="YUZ-4s-jTw"/>
+                                                <constraint firstItem="lSo-Qi-xUV" firstAttribute="top" secondItem="sj4-8S-Nfb" secondAttribute="top" id="ZRu-ty-4wJ"/>
                                                 <constraint firstItem="tT9-Yd-Jsz" firstAttribute="leading" secondItem="sj4-8S-Nfb" secondAttribute="leading" id="bLR-RG-8jJ"/>
+                                                <constraint firstItem="lSo-Qi-xUV" firstAttribute="leading" secondItem="sj4-8S-Nfb" secondAttribute="leading" id="eN7-Wc-1mI"/>
+                                                <constraint firstAttribute="trailing" secondItem="lSo-Qi-xUV" secondAttribute="trailing" id="xSU-aH-Gvt"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="109" height="120"/>

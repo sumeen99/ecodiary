@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		FC07D97226DB90F10090816A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC07D97126DB90F10090816A /* AppDelegate.swift */; };
 		FC07D97426DB90F10090816A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC07D97326DB90F10090816A /* SceneDelegate.swift */; };
-		FC07D97626DB90F10090816A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC07D97526DB90F10090816A /* ViewController.swift */; };
+		FC07D97626DB90F10090816A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC07D97526DB90F10090816A /* MainViewController.swift */; };
 		FC07D97926DB90F10090816A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC07D97726DB90F10090816A /* Main.storyboard */; };
 		FC07D97C26DB90F10090816A /* EcoDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC07D97A26DB90F10090816A /* EcoDiary.xcdatamodeld */; };
 		FC07D97E26DB90F10090816A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC07D97D26DB90F10090816A /* Assets.xcassets */; };
@@ -48,7 +48,7 @@
 		FC07D96E26DB90F10090816A /* EcoDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC07D97126DB90F10090816A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC07D97326DB90F10090816A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FC07D97526DB90F10090816A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FC07D97526DB90F10090816A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FC07D97826DB90F10090816A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC07D97B26DB90F10090816A /* EcoDiary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EcoDiary.xcdatamodel; sourceTree = "<group>"; };
 		FC07D97D26DB90F10090816A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		FC7FFA542733EA6B0058CB55 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
-				FC07D97526DB90F10090816A /* ViewController.swift */,
+				FC07D97526DB90F10090816A /* MainViewController.swift */,
 				FC3795FA26E09157003A8F08 /* DiaryEditViewController.swift */,
 				FC293C3F26EF8010007D55C0 /* DiaryViewController.swift */,
 				FC3B1F9927008C55007A98DF /* UserInfoViewController.swift */,
@@ -331,7 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC07D97626DB90F10090816A /* ViewController.swift in Sources */,
+				FC07D97626DB90F10090816A /* MainViewController.swift in Sources */,
 				FC07D9A526DB92930090816A /* DateCell.swift in Sources */,
 				FC07D97C26DB90F10090816A /* EcoDiary.xcdatamodeld in Sources */,
 				FC07D97226DB90F10090816A /* AppDelegate.swift in Sources */,
