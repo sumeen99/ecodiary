@@ -22,17 +22,12 @@ public class PostsService {
         User user=userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_USER + id));
         Long missionId=user.getMissionId();
         Long adminId=user.getAdminId();
-        System.out.println(missionId);
-        System.out.println(adminId);
         if(checkAdmin(adminId)){
             Posts posts=postsRepository.findById(missionId).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_MISSION+id));
-            System.out.println(posts);
             return posts.getMission();
         }
         else{
             EduPosts eduPosts=eduPostsRepository.findByAdminIdAndNum(adminId,missionId);
-            System.out.println(eduPosts);
-//            checkNull(eduPosts,userId);
             return eduPosts.getMission();
         }
 
@@ -49,7 +44,6 @@ public class PostsService {
         }
         else{
             EduPosts eduPosts=eduPostsRepository.findByAdminIdAndNum(adminId,missionId);
-//            checkNull(eduPosts,userId);
             return eduPosts.getQuestion();
         }
     }
@@ -65,7 +59,6 @@ public class PostsService {
         }
         else{
             EduPosts eduPosts=eduPostsRepository.findByAdminIdAndNum(adminId,missionId);
-//            checkNull(eduPosts,userId);
             return eduPosts.getInfo();
         }
     }
@@ -81,7 +74,6 @@ public class PostsService {
         }
         else{
             EduPosts eduPosts=eduPostsRepository.findByAdminIdAndNum(adminId,missionId);
-//            checkNull(eduPosts,userId);
             return eduPosts.getImgurl();
         }
     }

@@ -1,7 +1,6 @@
 package ecodiary.server.domain.EduPosts;
 
 import ecodiary.server.domain.Admin.AdminRepository;
-import ecodiary.server.domain.User.UserRepository;
 import ecodiary.server.global.OutputConst;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,14 +17,9 @@ public class EduPostsService {
 
     @Transactional
     public Long saveMission(EduPostsDto eduPostsDto){
-        //List<User> users=userRepository.findByAdminId(adminId);
         Long adminId=eduPostsDto.getAdminId();
         adminRepository.findById(adminId).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_ADMIN + adminId));
-        List<Long> usersNum=eduPostsRepository.findNum(adminId);
-        Long max=0L;
-        if (usersNum.size()!=0){
-            max= Collections.max(usersNum);
-        }
+        Long max=eduPostsRepository.findMaxNum(adminId);
         return eduPostsRepository.save(eduPostsDto.toEntity(++max)).getId();
 
     }

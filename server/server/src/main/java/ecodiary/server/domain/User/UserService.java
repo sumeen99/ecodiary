@@ -19,7 +19,7 @@ public class UserService {
 
     @Transactional
     public Long createUser(){
-        User user=userRepository.save(User.builder().missionId(1L).build());
+        User user=userRepository.save(User.builder().missionId(OutputConst.resetNum).build());
         return user.getId();
     }
 
@@ -40,12 +40,10 @@ public class UserService {
     public void updateMissionDate(Long userId, LocalDate missionDate){
         User user=userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_USER + userId));
         user.updateDate(missionDate);
-        //userRepository.save(User.builder().id(userId).missionId(user.getMissionId()).missionDate(missionDate).build());
     }
 
     @Transactional(readOnly = true)
     public int countMissionCheck(){
-        //Date date=Date.valueOf(LocalDate.now());
         return userRepository.countByMissionDate(LocalDate.now());
     }
 
@@ -72,15 +70,13 @@ public class UserService {
         Long userId= userRegisterRequestDto.getUserId();
         adminRepository.findById(adminId).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_ADMIN + userId));
         User user=userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_USER + userId));
-        user.updateAdminId(adminId,1L);
+        user.updateAdminId(adminId,OutputConst.resetNum);
         return userRepository.findByAdminId(adminId);
     }
 
     @Transactional(readOnly = true)
     public List<User> selectUserList(Long adminId){
-        List<User> users=userRepository.findByAdminId(adminId);
-        System.out.println(users);
-        return users;
+        return userRepository.findByAdminId(adminId);
     }
 
 
