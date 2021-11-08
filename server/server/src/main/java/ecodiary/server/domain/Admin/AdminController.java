@@ -15,7 +15,7 @@ public class AdminController {
 
     @ResponseBody
     @GetMapping("/api/v1/admin/check/{adminId}")
-    public Long checkAdmin(@PathVariable Long adminId){
+    public Long checkAdmin(@PathVariable Long adminId) {
         return adminService.checkAdmin(adminId);
 
     }

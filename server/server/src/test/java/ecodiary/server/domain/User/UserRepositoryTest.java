@@ -17,27 +17,28 @@ public class UserRepositoryTest {
     UserRepository userRepository;
 
     @Test
-    public void save(){
+    public void save() {
         //given
-        Long missionId=1L;
+        Long missionId = 1L;
 
         //when
-        User users=userRepository.save(User.builder().missionId(missionId).build());
+        User users = userRepository.save(User.builder().missionId(missionId).build());
 
         //then
-        User user=userRepository.findById(users.getId()).orElseThrow(() -> new IllegalArgumentException("그런 사람없습니다"));;
+        User user = userRepository.findById(users.getId()).orElseThrow(() -> new IllegalArgumentException("그런 사람없습니다"));
+
         assertThat(user).isEqualTo(users);
 
     }
 
     @Test
-    public void findAll(){
+    public void findAll() {
         //given
-        Long missionId=1L;
+        Long missionId = 1L;
         userRepository.save(User.builder().missionId(missionId).build());
 
         //when
-        List<User> users=userRepository.findAll();
+        List<User> users = userRepository.findAll();
 
         //then
         assertThat(users.get(0).getId()).isEqualTo(missionId);

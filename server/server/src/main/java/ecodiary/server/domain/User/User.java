@@ -21,25 +21,26 @@ public class User {
     @Column(nullable = false)
     private Long id;
 
-    @Column(name="mission_id",nullable = false)
+    @Column(name = "mission_id", nullable = false)
     private Long missionId;
 
-    @Column(name="mission_date")
+    @Column(name = "mission_date")
     private LocalDate missionDate;
 
     @Column(name = "admin_id")
     private Long adminId;
 
-    public void updateDate(LocalDate missionDate){
-        this.missionDate=missionDate;
-    }
-    public void updateAdminId(Long adminId,Long missionId){
-        this.adminId=adminId;
-        this.missionId=missionId;
+    public void updateDate(LocalDate missionDate) {
+        this.missionDate = missionDate;
     }
 
-    public void updateMissionId(Long missionId){
-        this.missionId=missionId;
+    public void updateAdminId(Long adminId, Long missionId) {
+        this.adminId = adminId;
+        this.missionId = missionId;
+    }
+
+    public void updateMissionId(Long missionId) {
+        this.missionId = missionId;
     }
 
 }

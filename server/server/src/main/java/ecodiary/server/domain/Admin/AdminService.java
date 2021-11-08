@@ -12,8 +12,8 @@ public class AdminService {
 
 
     @Transactional(readOnly = true)
-    public Long checkAdmin(Long adminId){
-        Admin admin=adminRepository.findById(adminId).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_ADMIN + adminId));
+    public Long checkAdmin(Long adminId) {
+        Admin admin = adminRepository.findById(adminId).orElseThrow(() -> new IllegalArgumentException(OutputConst.NO_ADMIN + adminId));
         return admin.getId();
     }
 }

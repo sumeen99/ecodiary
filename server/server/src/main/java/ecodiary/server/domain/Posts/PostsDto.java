@@ -7,12 +7,11 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PostsDto{
+public class PostsDto {
     private Long id;
     private String mission;
     private String question;
     private String info;
-
 
 
 }

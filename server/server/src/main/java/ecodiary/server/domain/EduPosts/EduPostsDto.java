@@ -15,15 +15,15 @@ public class EduPostsDto {
     private String imgurl;
 
     @Builder
-    public EduPostsDto(Long adminId,String mission, String question,String info, String imgurl){
-        this.adminId=adminId;
-        this.mission=mission;
-        this.question=question;
-        this.info=info;
-        this.imgurl=imgurl;
+    public EduPostsDto(Long adminId, String mission, String question, String info, String imgurl) {
+        this.adminId = adminId;
+        this.mission = mission;
+        this.question = question;
+        this.info = info;
+        this.imgurl = imgurl;
     }
 
-    public EduPosts toEntity(Long num){
+    public EduPosts toEntity(Long num) {
         return EduPosts.builder().adminId(adminId).num(num).mission(mission).question(question).info(info).imgurl(imgurl).build();
     }
 }

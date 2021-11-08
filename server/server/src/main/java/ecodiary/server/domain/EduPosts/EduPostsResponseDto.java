@@ -12,5 +12,4 @@ public class EduPostsResponseDto {
     private String imgurl;
 
 
-
 }

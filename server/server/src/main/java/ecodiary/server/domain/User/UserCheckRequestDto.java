@@ -7,8 +7,8 @@ import lombok.Getter;
 public class UserCheckRequestDto {
     private Long adminId;
 
-    public UserCheckRequestDto(Long adminId){
-        this.adminId=adminId;
+    public UserCheckRequestDto(Long adminId) {
+        this.adminId = adminId;
     }
 
 }

@@ -16,33 +16,33 @@ public class UserController {
 
 
     @GetMapping("/api/v1/user/{id}/mission-id")
-    public UserDto getMissionId(@PathVariable Long id){
-        Long missionId=userService.selectMissionId(id);
+    public UserDto getMissionId(@PathVariable Long id) {
+        Long missionId = userService.selectMissionId(id);
         return UserDto.builder().missionId(missionId).mission(postsService.findMission(id)).build();
     }
 
     @PostMapping("/api/v1/user")
-    public Long save(){
+    public Long save() {
         return userService.createUser();
     }
 
     @PutMapping("/api/v1/user/{id}/mission-id")
-    public void updateMissionId(@PathVariable Long id){
-         userService.updateMissionId(id);
+    public void updateMissionId(@PathVariable Long id) {
+        userService.updateMissionId(id);
     }
 
     @PutMapping("/api/v1/user/{id}/mission-check")
-    public void updateMissionDate(@PathVariable Long id){
-        userService.updateMissionDate(id,LocalDate.now());
+    public void updateMissionDate(@PathVariable Long id) {
+        userService.updateMissionDate(id, LocalDate.now());
     }
 
     @GetMapping("/api/v1/user/total-of-today")
-    public int getTotalOfToday(){
+    public int getTotalOfToday() {
         return userService.countMissionCheck();
     }
 
     @PostMapping("/api/v1/user/register-admin-to-user")
-    public List<User> registerAdminToUser(@RequestBody UserRegisterRequestDto userRegisterRequestDto){
+    public List<User> registerAdminToUser(@RequestBody UserRegisterRequestDto userRegisterRequestDto) {
         return userService.registerAdminToUser(userRegisterRequestDto);
     }
 

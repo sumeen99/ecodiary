@@ -20,7 +20,7 @@ public class EduPosts {
     @Column(nullable = false)
     private Long id;
 
-    @Column(nullable = false,name = "admin_id")
+    @Column(nullable = false, name = "admin_id")
     private Long adminId;
 
     @Column(nullable = false)
@@ -35,13 +35,13 @@ public class EduPosts {
     private String info;
     private String imgurl;
 
-public void update(EduPostsResponseDto eduPostsResponseDto){
-    this.mission=eduPostsResponseDto.getMission();
-    this.question=eduPostsResponseDto.getQuestion();
-    this.info=eduPostsResponseDto.getInfo();
-    this.imgurl= eduPostsResponseDto.getImgurl();
+    public void update(EduPostsResponseDto eduPostsResponseDto) {
+        this.mission = eduPostsResponseDto.getMission();
+        this.question = eduPostsResponseDto.getQuestion();
+        this.info = eduPostsResponseDto.getInfo();
+        this.imgurl = eduPostsResponseDto.getImgurl();
 
-}
+    }
 
 
 }

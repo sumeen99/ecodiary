@@ -17,11 +17,11 @@ public class PostsRepositoryTest {
     PostsRepository postsRepository;
 
     @Test
-    public void findAll(){
+    public void findAll() {
 
         //given
-        Long id=1L;
-        String title="오늘 하루 일회용품 대신 텀블러 써보기";
+        Long id = 1L;
+        String title = "오늘 하루 일회용품 대신 텀블러 써보기";
 
         //when
         List<Posts> postsList = postsRepository.findAll();
@@ -34,22 +34,20 @@ public class PostsRepositoryTest {
     }
 
     @Test
-    public void save(){
+    public void save() {
         //given
-        String mission="오늘의 미션";
-        String question="오늘의 질문";
-        String info="오늘의 정보";
+        String mission = "오늘의 미션";
+        String question = "오늘의 질문";
+        String info = "오늘의 정보";
 
         //when
-        Posts post=postsRepository.save(Posts.builder().mission(mission).question(question).info(info).build());
+        Posts post = postsRepository.save(Posts.builder().mission(mission).question(question).info(info).build());
 
         //then
-        Posts posts=postsRepository.findById(post.getId()).orElseThrow(() -> new IllegalArgumentException("그런 미션없습니다"));
+        Posts posts = postsRepository.findById(post.getId()).orElseThrow(() -> new IllegalArgumentException("그런 미션없습니다"));
         assertThat(post).isEqualTo(posts);
 
     }
-
-
 
 
 }
