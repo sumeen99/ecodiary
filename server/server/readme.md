@@ -7,6 +7,7 @@
 * 관련영상,PPT는 처음 디렉토리에서 발견가능
 
 ![image](https://user-images.githubusercontent.com/70104259/213444983-42e6198b-1b05-4585-a4b6-ea62e228ddad.png)
+![image](https://user-images.githubusercontent.com/70104259/213445585-446ca170-aa98-4cb1-bf26-f79d2624c87a.png)
 
 
 
